@@ -2,11 +2,10 @@ package racingcar.view;
 
 import camp.nextstep.edu.missionutils.Console;
 import racingcar.entity.racer;
+import racingcar.service.stringDivider;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class gameView {
     private final static String FIRST_MSG = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
@@ -14,15 +13,19 @@ public class gameView {
     private final static String WINNER_MSG = "최종 우승자 : ";
     private final static String RACE_STRIDE = "-";
 
-    public Map<String, Integer> input(){
+    public record GameInput(ArrayList<racer> racers, Integer trial) {}
+
+    public GameInput input(){
         System.out.println(FIRST_MSG);
-        String racer = Console.readLine();
+        String racers = Console.readLine();
+
         System.out.println(TRIAL_MSG);
         Integer trial = Integer.parseInt(Console.readLine());
 
-        Map<String, Integer> input = new HashMap<>();
-        input.put(racer, trial);
-        return input;
+        stringDivider stringdivider = new stringDivider();
+        ArrayList<racer> racerList = stringdivider.dividerString(racers);
+
+        return new GameInput(racerList, trial);
     }
 
     public void raceStatus(ArrayList<racer> racers){
