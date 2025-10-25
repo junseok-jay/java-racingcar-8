@@ -14,7 +14,7 @@ public class stringDivider {
         for(String racerTemp : racerList){
             if(racerTemp.length() > 5) throw new IllegalArgumentException("racer name length can not be over than 5");
 
-            racer temp = new racer(racerTemp, null);
+            racer temp = new racer(racerTemp);
             racerContainer.add(temp);
         }
         return racerContainer;

@@ -1,12 +1,12 @@
 package racingcar.entity;
 
 public class racer {
-    private String name;
+    private final String name;
     private Integer step;
 
-    public racer(String name, Integer step){
+    public racer(String name){
         this.name = name;
-        this.step = step;
+        this.step = 0;
     }
 
     public String getName(){
@@ -14,5 +14,9 @@ public class racer {
     }
     public Integer getStep(){
         return this.step;
+    }
+
+    public void setStep(Integer step){
+        this.step = step;
     }
 }
