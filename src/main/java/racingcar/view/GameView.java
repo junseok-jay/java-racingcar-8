@@ -20,10 +20,11 @@ public class gameView {
         String racers = Console.readLine();
 
         System.out.println(TRIAL_MSG);
-        Integer trial = Integer.parseInt(Console.readLine());
-
-        stringDivider stringdivider = new stringDivider();
-        ArrayList<racer> racerList = stringdivider.dividerString(racers);
+        int trial = Integer.parseInt(Console.readLine().trim());
+        
+        if(trial <= 0) {
+            throw new IllegalArgumentException("시도 횟수는 1 이상이어야 합니다.");
+        }
 
         return new GameInput(racerList, trial);
     }
