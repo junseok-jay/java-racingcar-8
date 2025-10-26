@@ -1,10 +1,10 @@
 package racingcar.entity;
 
-public class racer {
+public class Racer {
     private final String name;
     private Integer step;
 
-    public racer(String name){
+    public Racer(String name){
         this.name = name;
         this.step = 0;
     }
